@@ -19,9 +19,8 @@ __Linux/macOS__
 chmod +x ./install.sh
 sudo ./install.sh
 ```
-<div class="alert alert-block alert-danger">
-__YOU MAY NEED TO CHANGE THE SHEBANG IN THE INSTALLATION SCRIPT DEPENDING ON YOUR SYSTEM__
-</div>
+__YOU MAY NEED TO CHANGE THE SHEBANG IN THE INSTALLATION SCRIPT DEPENDING ON YOUR SYSTEM.__ 
+
 
 __Windows__  
 Absolutely no idea.
