@@ -16,8 +16,12 @@ If you want to revert the process, you can run the same command and invert files
 ## Install permanently on your system
 __Linux/macOS__
 ```
-sudo cp ./binary-inverter /usr/local/bin
+chmod +x ./install.sh
+sudo ./install.sh
 ```
+<div class="alert alert-block alert-danger">
+__YOU MAY NEED TO CHANGE THE SHEBANG IN THE INSTALLATION SCRIPT DEPENDING ON YOUR SYSTEM__
+</div>
 
 __Windows__  
 Absolutely no idea.
