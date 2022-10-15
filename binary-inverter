@@ -1,0 +1,62 @@
+#!/usr/bin/python3
+
+import numpy as np
+from PIL import Image
+import sys
+
+usage = "Usage: [input file] [output file]"
+
+def reverse_byte(number: int) -> int:
+    """
+    Takes a number (int) as a parameter and returns
+    the reversed binary version of it.
+    E.g. 59 -> 00111011
+         220 -> 1101110
+    If you call this function with 59, it will
+    return 220 because when you reverse the binary 
+    form of 59, which is 00111011, you get 11011100.
+    When you convert this binary number into an
+    int, you get 220.
+    """
+    if number > 255 or number < 0:
+        print(f"{number} is not a valid byte!")
+        return
+    else:
+        byte = bin(number)[2:]
+        if len(byte) < 8:
+            byte = "0" * (8 - len(byte)) + byte
+       
+        reversed_byte = ""
+
+        for bit in byte:
+            reversed_byte = bit + reversed_byte
+        
+        reversed_byte = int(reversed_byte, 2)
+        return reversed_byte
+
+def invert_bytes_image(filepath: str, output: str) -> None:
+    image = Image.open(filepath)
+    image_array = np.array(image)
+
+    for line in image_array:
+        for pixel in line:
+            pixel[0] = reverse_byte(pixel[0])
+            pixel[1] = reverse_byte(pixel[1])
+            pixel[2] = reverse_byte(pixel[2])
+
+    final_image = Image.fromarray(image_array)
+    final_image.save(output)
+
+def run():
+    if len(sys.argv) == 1:
+        exit(f"This script will invert all the bytes of the input file and save the result to the file specified.\n{usage}")
+
+    if len(sys.argv) != 3:
+        exit(usage)
+    else:
+        print(f"Inverting file '{sys.argv[1]}' to '{sys.argv[2]}'...")
+        invert_bytes_image(sys.argv[1], sys.argv[2])    
+        print("Process finished !")
+
+if __name__ == "__main__":
+    run()
