@@ -19,5 +19,5 @@ __Linux/macOS__
 sudo cp ./binary-inverter /usr/local/bin
 ```
 
-__Windows__
+__Windows__  
 Absolutely no idea.
