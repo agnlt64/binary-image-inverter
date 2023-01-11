@@ -3,7 +3,7 @@ A simple script which will invert all the bytes of an image.
 
 ## Usage
 ```
-git clone https://ABFStudio/binary-image-inverter
+git clone https://github.com/ABFStudio/binary-image-inverter.git
 cd binary-image-inverter
 chmod +x ./binary_inverter.py
 ./binary_inverter <file-to-invert> <output-file>
